@@ -1,0 +1,14 @@
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.exe
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.deps.json
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.runtimeconfig.json
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.runtimeconfig.dev.json
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.dll
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.pdb
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.csproj.AssemblyReference.cache
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.AssemblyInfoInputs.cache
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.AssemblyInfo.cs
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.csproj.CoreCompileInputs.cache
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.dll
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.pdb
+C:\Users\13134\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.genruntimeconfig.cache
