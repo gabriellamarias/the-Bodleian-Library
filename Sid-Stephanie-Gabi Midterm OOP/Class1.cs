@@ -69,6 +69,30 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
 
 
+    public class Book : Materials
+    {
+
+        public override string nameOfMaterial { get; set; }
+
+        public override string Creator { get; set; }
+
+        public override string dueDate { get; set; }
+
+        public override Status getStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Book(string NameofMaterial, string Creator)
+        {
+            var Title = this.nameOfMaterial;
+            var Author = this.Creator;
+
+        }
+
+    }
+
+
 
 
 
