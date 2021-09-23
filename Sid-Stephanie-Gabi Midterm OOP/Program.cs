@@ -253,6 +253,7 @@ namespace MidtermPractice
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("POOP");
             LibraryStartMenu();
    
         }
