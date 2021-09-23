@@ -13,11 +13,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\Gabi\\source\\repos\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
       "projectName": "Sid-Stephanie-Gabi Midterm OOP",
       "projectPath": "C:\\Users\\Gabi\\source\\repos\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
       "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Gabi\\source\\repos\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+      "projectName": "Sid-Stephanie-Gabi Midterm OOP",
+      "projectPath": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+      "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
+>>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gabi\\AppData\\Roaming\\NuGet\\NuGet.Config",

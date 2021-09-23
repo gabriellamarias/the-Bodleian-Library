@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "FUcZH7aBcXSYA5OPChTCm4r0ZE2LSJVliEThzJ/6PArmX1oNu2nO9CWz91JDR5Vy3QxngAblbHAEfpKyMvjGZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gabi\\source\\repos\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+=======
+  "dgSpecHash": "T0co+k+1CKAzRoFiv7QVEwBEWkLhjoWbLnpFDP0DpRNzRRbG8a/AqG21C5YPaDMdNyIo0kqqxddJbO2af6phAQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [],
   "logs": []
 }
