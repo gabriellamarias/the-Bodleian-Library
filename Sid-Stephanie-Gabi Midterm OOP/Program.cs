@@ -253,9 +253,8 @@ namespace MidtermPractice
         }
         static void Main(string[] args)
         {
-
             LibraryStartMenu();
-            
+   
         }
     }
 }
