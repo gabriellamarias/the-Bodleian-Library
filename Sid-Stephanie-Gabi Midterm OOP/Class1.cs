@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using System.IO;
 
 
 namespace Sid_Stephanie_Gabi_Midterm_OOP
@@ -9,92 +10,83 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
     public enum Status
     {
-        [Description("Checked Out")] checkedOut = 1,
-        [Description("On Shelf")] onShelf = 2,
-        [Description("Paging")] paging = 3,
+        checkedOut,
+        onShelf,
+        vanished
+
     }
     public abstract class Materials
     {
+        public abstract string typeOfMaterial { get; set; }
         public abstract string nameOfMaterial { get; set; }
 
         public abstract string Creator { get; set; }
 
-        public abstract Status getStatus();
+        public abstract Status statusOfMaterial { get; set; }
 
         public abstract string dueDate { get; set; }
 
     }
-
-    public class potionsSupplies: Materials
+    public class potionsSupplies : Materials
     {
+        private string _typeofmaterial = "Potions Supplies";
+        public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
+
         public override string nameOfMaterial { get; set; }
         public override string Creator { get; set; }
 
-        public override Status getStatus()
-        {
-            throw new NotImplementedException(); 
-        }
+        public override Status statusOfMaterial { get; set; }
 
         public override string dueDate { get; set; }
 
         public potionsSupplies(string nameOfMaterial, string Creator, Status itemStatus)
         {
-            nameOfMaterial = this.nameOfMaterial;
-            Creator = this.Creator;
-            itemStatus = getStatus();
-        }
 
-        public List<potionsSupplies> potionsSuppliesList()
-        {
-            List<potionsSupplies> potionsSuppliesList = new List<potionsSupplies>();
-
-            potionsSupplies pewterCauldron = new potionsSupplies("Pewter Cauldron", "Ancient Potion Maker", getStatus());
-            potionsSupplies glassPhial = new potionsSupplies("Glass Phial", "Diagon Alley Apothecary", getStatus());
-            potionsSupplies crystalPhial = new potionsSupplies("Crystal Phial", "Potions Lady", getStatus());
-            potionsSupplies brassScales = new potionsSupplies("Brass Scales", "Ancient Potion Maker", getStatus());
-            potionsSupplies juicingBoard = new potionsSupplies("Juicing Board", "Diagon Alley Apothecary", getStatus());
-            potionsSupplies mortarAndPestle = new potionsSupplies("Mortar and Pestle", "Ancient Potion Maker", getStatus());
-
-            potionsSuppliesList.Add(pewterCauldron);
-            potionsSuppliesList.Add(glassPhial);
-            potionsSuppliesList.Add(crystalPhial);
-            potionsSuppliesList.Add(brassScales);
-            potionsSuppliesList.Add(juicingBoard);
-            potionsSuppliesList.Add(mortarAndPestle);
-
-            return potionsSuppliesList;
+            this.nameOfMaterial = nameOfMaterial;
+            this.Creator = Creator;
+            this.statusOfMaterial = itemStatus;
         }
 
     }
-
-
-
     public class Book : Materials
     {
+        private string _typeofmaterial = "Books";
+        public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
 
         public override string nameOfMaterial { get; set; }
-
         public override string Creator { get; set; }
+
+        public override Status statusOfMaterial { get; set; }
 
         public override string dueDate { get; set; }
 
-        public override Status getStatus()
+        public Book(string Title, string Author, Status itemStatus)
         {
-            throw new NotImplementedException();
+
+            this.nameOfMaterial = Title;
+            this.Creator = Author;
+            this.statusOfMaterial = itemStatus;
         }
+    }
+    public class Manga : Materials
+    {
+        private string _typeofmaterial = "Manga";
+        public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
 
-        public Book(string NameofMaterial, string Creator)
+        public override string nameOfMaterial { get; set; }
+        public override string Creator { get; set; }
+
+        public override Status statusOfMaterial { get; set; }
+
+        public override string dueDate { get; set; }
+
+        public Manga(string Title, string Author, Status itemStatus)
         {
-            var Title = this.nameOfMaterial;
-            var Author = this.Creator;
 
+            this.nameOfMaterial = Title;
+            this.Creator = Author;
+            this.statusOfMaterial = itemStatus;
         }
 
     }
-
-
-
-
-
-
 }
