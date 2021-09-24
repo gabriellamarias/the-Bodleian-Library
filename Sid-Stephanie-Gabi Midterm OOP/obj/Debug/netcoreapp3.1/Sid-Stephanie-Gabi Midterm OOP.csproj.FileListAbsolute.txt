@@ -25,3 +25,16 @@ C:\Users\Gabi\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\o
 C:\Users\Gabi\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.dll
 C:\Users\Gabi\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.pdb
 C:\Users\Gabi\Source\Repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.genruntimeconfig.cache
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.exe
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.deps.json
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.runtimeconfig.json
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.runtimeconfig.dev.json
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.dll
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\bin\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.pdb
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.csproj.AssemblyReference.cache
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.AssemblyInfoInputs.cache
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.AssemblyInfo.cs
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.csproj.CoreCompileInputs.cache
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.dll
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.pdb
+C:\Users\me\source\repos\the-Bodleian-Library\Sid-Stephanie-Gabi Midterm OOP\obj\Debug\netcoreapp3.1\Sid-Stephanie-Gabi Midterm OOP.genruntimeconfig.cache
