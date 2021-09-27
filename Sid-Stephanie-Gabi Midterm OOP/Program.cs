@@ -14,38 +14,39 @@ namespace MidtermPractice
 
         public static void LibraryContents()
         {
-            //List<Materials> allMaterials = new List<Materials>();
+            List<Materials> allMaterials = new List<Materials>();
 
 
-            //allMaterials.Add(new potionsSupplies("Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies("Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies("Crystal Phial", "Potions Lady", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies("Brass Scales", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies("Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies("Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new Book("Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-            //allMaterials.Add(new Book("Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-            //allMaterials.Add(new Book("Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-            //allMaterials.Add(new Book("Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-            //allMaterials.Add(new Book("Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-            //allMaterials.Add(new Book("Magical Me", "Gilderoy Lockhart", Status.onShelf));
-            //allMaterials.Add(new Manga("Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-            //allMaterials.Add(new Manga("K-On", "Kakifly", Status.onShelf));
-            //allMaterials.Add(new Manga("Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-            //allMaterials.Add(new Manga("Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-            //allMaterials.Add(new Manga("Nichijou", "Keiichi Arawi", Status.onShelf));
-            //allMaterials.Add(new Manga("Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
-
-            //string Path = "MaterialsList.txt";
+            allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
+            allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
+            allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
+            allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
+            allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
+            allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
+            allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
+            allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
+            allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
+            allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
+            allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
+            allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
 
 
-            //using (TextWriter tw = new StreamWriter(Path))
-            //{
-            //    foreach (Materials x in allMaterials)
-            //    {
-            //        tw.WriteLine(string.Format("Material: {0} | Name: {1} | Creator: {2} | Status: {3}", x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
-            //    }
-            //}
+            string Path = "MaterialsList.txt";
+
+
+            using (TextWriter tw = new StreamWriter(Path))
+            {
+                foreach (Materials x in allMaterials)
+                {
+                    tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+                }
+            }
 
 
 
@@ -268,34 +269,36 @@ namespace MidtermPractice
             List<Materials> allMaterials = new List<Materials>();
 
 
-            allMaterials.Add(new potionsSupplies("Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies("Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies("Crystal Phial", "Potions Lady", Status.onShelf));
-            allMaterials.Add(new potionsSupplies("Brass Scales", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies("Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies("Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new Book("Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-            allMaterials.Add(new Book("Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-            allMaterials.Add(new Book("Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-            allMaterials.Add(new Book("Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-            allMaterials.Add(new Book("Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-            allMaterials.Add(new Book("Magical Me", "Gilderoy Lockhart", Status.onShelf));
-            allMaterials.Add(new Manga("Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-            allMaterials.Add(new Manga("K-On", "Kakifly", Status.onShelf));
-            allMaterials.Add(new Manga("Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-            allMaterials.Add(new Manga("Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-            allMaterials.Add(new Manga("Nichijou", "Keiichi Arawi", Status.onShelf));
-            allMaterials.Add(new Manga("Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
+            allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
+            allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
+            allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
+            allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
+            allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
+            allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
+            allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
+            allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
+            allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
+            allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
+            allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
+            allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
+            allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
 
-
-            string test = "Brass Scales";
+            //Console.WriteLine("What are you searching?");
+            int test = 0;
+            do Console.Write("ISBN: ");
+            while (!int.TryParse(Console.ReadLine(), out test));
             UserSelect(test, allMaterials);
         }
 
-        public static void UserSelect(string userChoice, List<Materials> allMaterials)
+        public static void UserSelect(int userChoice, List<Materials> allMaterials)
         {
             
-            var obj = allMaterials.FirstOrDefault(x => x.nameOfMaterial == userChoice);
+            var obj = allMaterials.FirstOrDefault(x => x.ISBN == userChoice);
             obj.statusOfMaterial = Status.checkedOut;
 
             CheckOut(obj, allMaterials);
@@ -335,6 +338,7 @@ namespace MidtermPractice
         }
         static void Main(string[] args)
         {
+            //LibraryContents();
             LibraryStartMenu();
 
         }
