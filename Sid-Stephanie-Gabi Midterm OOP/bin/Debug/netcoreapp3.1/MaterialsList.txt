@@ -1,12 +1,12 @@
 Material: Potions Supplies | Name: Pewter Cauldron | Creator: Ancient Potion Maker | Status: onShelf
 Material: Potions Supplies | Name: Glass Phial | Creator: Diagon Alley Apothecary | Status: onShelf
 Material: Potions Supplies | Name: Crystal Phial | Creator: Potions Lady | Status: onShelf
-Material: Potions Supplies | Name: Brass Scales | Creator: Ancient Potion Maker | Status: checkedOut
+Material: Potions Supplies | Name: Brass Scales | Creator: Ancient Potion Maker | Status: onShelf
 Material: Potions Supplies | Name: Juicing Board | Creator: Diagon Alley Apothecary | Status: onShelf
 Material: Potions Supplies | Name: Mortar and Pestle | Creator: Ancient Potion Maker | Status: onShelf
 Material: Books | Name: Fantastic Beasts and Where to Find Them | Creator: Newt Scamander | Status: onShelf
 Material: Books | Name: Quidditch Through the Ages | Creator: Kennilworthy Whisp | Status: onShelf
-Material: Books | Name: Hogwarts: A History | Creator: Bathilda Bagshot | Status: onShelf
+Material: Books | Name: Hogwarts: A History | Creator: Bathilda Bagshot | Status: checkedOut
 Material: Books | Name: Magical Drafts and Potions | Creator: Arsenic Jigger | Status: onShelf
 Material: Books | Name: Unfogging the Future | Creator: Blenheim Stalk | Status: onShelf
 Material: Books | Name: Magical Me | Creator: Gilderoy Lockhart | Status: onShelf

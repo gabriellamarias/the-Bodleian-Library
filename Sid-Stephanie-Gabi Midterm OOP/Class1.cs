@@ -26,6 +26,8 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
         public abstract string dueDate { get; set; }
 
+        public abstract int ISBN { get; set; }
+
     }
     public class potionsSupplies : Materials
     {
@@ -39,12 +41,15 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
         public override string dueDate { get; set; }
 
-        public potionsSupplies(string nameOfMaterial, string Creator, Status itemStatus)
+        public override int ISBN { get; set; }
+
+        public potionsSupplies(int ISBN, string nameOfMaterial, string Creator, Status itemStatus)
         {
 
             this.nameOfMaterial = nameOfMaterial;
             this.Creator = Creator;
             this.statusOfMaterial = itemStatus;
+            this.ISBN = ISBN;
         }
 
     }
@@ -60,12 +65,15 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
         public override string dueDate { get; set; }
 
-        public Book(string Title, string Author, Status itemStatus)
+        public override int ISBN { get; set; }
+
+        public Book(int ISBN, string Title, string Author, Status itemStatus)
         {
 
             this.nameOfMaterial = Title;
             this.Creator = Author;
             this.statusOfMaterial = itemStatus;
+            this.ISBN = ISBN;
         }
     }
     public class Manga : Materials
@@ -80,12 +88,15 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
         public override string dueDate { get; set; }
 
-        public Manga(string Title, string Author, Status itemStatus)
+        public override int ISBN { get; set; }
+
+        public Manga(int ISBN, string Title, string Author, Status itemStatus)
         {
 
             this.nameOfMaterial = Title;
             this.Creator = Author;
             this.statusOfMaterial = itemStatus;
+            this.ISBN = ISBN;
         }
 
     }
