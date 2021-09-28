@@ -314,6 +314,29 @@ namespace MidtermPractice
             }
         }
 
+        public static void DueDateTracker()
+        {
+
+            DateTime checkoutDate = new DateTime(2021, 9, 1);
+            DateTime dueDate = checkoutDate.AddDays(14);
+
+            DateTime returnDate =  DateTime.Now;
+            TimeSpan intervalDate = (returnDate - dueDate);
+            double t = Math.Round(intervalDate.TotalDays);
+
+            int result = DateTime.Compare(checkoutDate, returnDate);
+            Console.WriteLine($"{returnDate}, {checkoutDate}, {dueDate}, {intervalDate}, {result}");
+
+            if (result < 0)
+            {
+                Console.WriteLine($"This book is overdue by {t} days!");
+            }
+            else if (result >= 0)
+            {
+                Console.WriteLine("This book was returned on time.");
+            }
+        }
+
         public static void Return()
         {
 
@@ -321,8 +344,8 @@ namespace MidtermPractice
         static void Main(string[] args)
         {
             //LibraryContents();
-            LibraryStartMenu();
-
+            //LibraryStartMenu();
+            DueDateTracker();
         }
     }
 }
