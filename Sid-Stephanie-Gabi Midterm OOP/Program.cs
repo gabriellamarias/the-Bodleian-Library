@@ -12,60 +12,44 @@ namespace MidtermPractice
     {
 
 
-        public static void LibraryContents()
-        {
-            List<Materials> allMaterials = new List<Materials>();
+        //public static void LibraryContents()
+        //{
+        //    List<Materials> allMaterials = new List<Materials>();
 
 
-            allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-            allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-            allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-            allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-            allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-            allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
-            allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-            allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
-            allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-            allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-            allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
-            allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
+        //    allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
+        //    allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
+        //    allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
+        //    allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
+        //    allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
+        //    allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
+        //    allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
+        //    allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
+        //    allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
+        //    allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
+        //    allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
+        //    allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
+        //    allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
 
 
-            string Path = "MaterialsList.txt";
+        //    string Path = "MaterialsList.txt";
 
 
-            using (TextWriter tw = new StreamWriter(Path))
-            {
-                foreach (Materials x in allMaterials)
-                {
-                    tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
-                }
-            }
-
-
-
-            //string checkOutChoice = "Brass Scales";
-            //allMaterials.Find(x => x.nameOfMaterial == "Brass Scales").statusOfMaterial = Status.checkedOut;
-            //Console.WriteLine(allMaterials);
-
-
-            //var updateCheckOut = allMaterials.Where(x => x.nameOfMaterial == "Brass Scales").FirstOrDefault();
-            //if (updateCheckOut != null)
-            //{
-            //    updateCheckOut.statusOfMaterial = Status.checkedOut;
-            //}
-            //foreach (var s in allMaterials)
-            //{
-            //    Console.WriteLine(s);
-            //}
-
-        }
+        //    using (TextWriter tw = new StreamWriter(Path))
+        //    {
+        //        foreach (Materials x in allMaterials)
+        //        {
+        //            tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+        //        }
+        //        tw.Close();
+        //    }
+            
+        //}
 
 
         public static void LibraryStartMenu()
@@ -139,7 +123,7 @@ namespace MidtermPractice
                             while (!reader.EndOfStream)
                             {
                                 line = reader.ReadLine();
-                                Console.WriteLine(line);
+                                Console.WriteLine(line);         
                             }
                         }
                         Console.WriteLine("1 - Check out");
@@ -148,22 +132,21 @@ namespace MidtermPractice
                         while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
                         switch (userMenuChoice)
                         {
-                           // case 1:
-                              //  UserSelect();
-                              // break;
+                            case 1:
+                                file.Close();
+                                UserSelect();
+                                break;
                             case 2:
+                                file.Close();
                                 LibraryStartMenu();
                                 break;
                             default:
                                 Console.WriteLine("Please enter a valid choice");
+                                file.Close();
                                 break;
                         }
-
-
                         break;
-                    case 2:
-                        using (file)
-                        {
+                    case 2:           
                             while (!file.EndOfStream)
                             {
                                 var line = file.ReadLine();
@@ -172,12 +155,10 @@ namespace MidtermPractice
                                 {
                                     Console.WriteLine(line);
                                 }
-                            }
-                        }
+                            file.Close();
+                            }                        
                         break;
                     case 3:
-                        using (file)
-                        {
                             while (!file.EndOfStream)
                             {
                                 var line = file.ReadLine();
@@ -186,12 +167,10 @@ namespace MidtermPractice
                                 {
                                     Console.WriteLine(line);
                                 }
+                                file.Close();
                             }
-                        }
                         break;
                     case 4:
-                        using (file)
-                        {
                             while (!file.EndOfStream)
                             {
                                 var line = file.ReadLine();
@@ -200,17 +179,20 @@ namespace MidtermPractice
                                 {
                                     Console.WriteLine(line);
                                 }
+                                file.Close();
                             }
-                        }
                         break;
                     case 5:
+                        file.Close();
                         LibraryStartMenu();
                         break;
                     default:
                         Console.WriteLine("Please enter a valid option");
                         userRetry = true;
+                        file.Close();
                         break;
                 }
+                file.Close();
             }
             while (userRetry);
         }
@@ -220,12 +202,9 @@ namespace MidtermPractice
             Console.Write("Enter creator: ");
             var text = Console.ReadLine();
 
-            System.IO.StreamReader file =
-                new System.IO.StreamReader("TextFile1.txt");
-
-
-            using (file)
-            {
+            using (System.IO.StreamReader file =
+                new System.IO.StreamReader("MaterialsList.txt"))
+            { 
                 while (!file.EndOfStream)
                 {
                     var line = file.ReadLine();
@@ -236,8 +215,6 @@ namespace MidtermPractice
                     }
                 }
             }
-            file.Close();
-
             Console.ReadLine();
         }
 
@@ -246,11 +223,8 @@ namespace MidtermPractice
             Console.Write("Enter keyword: ");
             var text = Console.ReadLine();
 
-            System.IO.StreamReader file =
-                new System.IO.StreamReader("MaterialsList.txt");
-
-
-            using (file)
+            using (System.IO.StreamReader file =
+                new System.IO.StreamReader("MaterialsList.txt"))
             {
                 while (!file.EndOfStream)
                 {
@@ -262,12 +236,37 @@ namespace MidtermPractice
                     }
                 }
             }
-            file.Close();
             Console.ReadLine();
 
 
-            List<Materials> allMaterials = new List<Materials>();
+            //List<Materials> allMaterials = new List<Materials>();
 
+
+            //allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
+            //allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
+            //allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
+            //allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
+            //allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
+            //allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
+            //allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
+            //allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
+            //allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
+            //allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
+            //allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
+            //allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
+            //allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
+            //allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
+            //allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
+            //allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
+            //allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
+            //allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
+
+            //UserSelect(test, allMaterials);
+        }
+
+        public static void UserSelect()
+        {
+            List<Materials> allMaterials = new List<Materials>();
 
             allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
             allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
@@ -288,33 +287,15 @@ namespace MidtermPractice
             allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
             allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
 
-            //Console.WriteLine("What are you searching?");
-            int test = 0;
-            do Console.Write("ISBN: ");
-            while (!int.TryParse(Console.ReadLine(), out test));
-            UserSelect(test, allMaterials);
-        }
+            int userISBN = 0;
+            do Console.Write("Enter the ISBN of the item you would like to check out: ");
+            while (!int.TryParse(Console.ReadLine(), out userISBN));
+            {
 
-        public static void UserSelect(int userChoice, List<Materials> allMaterials)
-        {
-            
-            var obj = allMaterials.FirstOrDefault(x => x.ISBN == userChoice);
-            obj.statusOfMaterial = Status.checkedOut;
+                var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
+                CheckOut(obj, allMaterials);
 
-            CheckOut(obj, allMaterials);
-
-
-
-            //string checkOutChoice = "Brass Scales";
-            //allMaterials.Find(x => x.nameOfMaterial == "Brass Scales").statusOfMaterial = Status.checkedOut;
-            //Console.WriteLine(allMaterials);
-
-
-            //var updateCheckOut = allMaterials.Where(x => x.nameOfMaterial == "Brass Scales").FirstOrDefault();
-            //if (updateCheckOut != null)
-            //{
-            //    updateCheckOut.statusOfMaterial = Status.checkedOut;
-            //}
+            }
         }
 
 
@@ -327,8 +308,9 @@ namespace MidtermPractice
             {
                 foreach (Materials x in allMaterials)
                 {
-                    tw.WriteLine(string.Format("Material: {0} | Name: {1} | Creator: {2} | Status: {3}", x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+                    tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
                 }
+                tw.Close();
             }
         }
 

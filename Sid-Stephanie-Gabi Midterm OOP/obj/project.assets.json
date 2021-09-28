@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\me\\.nuget\\packages\\": {}
+    "C:\\Users\\Gabi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\me\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+      "projectUniqueName": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
       "projectName": "Sid-Stephanie-Gabi Midterm OOP",
-      "projectPath": "C:\\Users\\me\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
-      "packagesPath": "C:\\Users\\me\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\me\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
+      "projectPath": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+      "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gabi\\Source\\Repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\me\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gabi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
