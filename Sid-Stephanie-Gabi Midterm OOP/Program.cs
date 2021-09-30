@@ -15,40 +15,35 @@ namespace MidtermPractice
         //public static void LibraryContents()
         //{
         //    List<Materials> allMaterials = new List<Materials>();
-
-
-        //    allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-        //    allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-        //    allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
-        //    allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
-        //    allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-        //    allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-        //    allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-        //    allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-        //    allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-        //    allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-        //    allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-        //    allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
-        //    allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-        //    allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
-        //    allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-        //    allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-        //    allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
-        //    allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
-
-
-        //    string Path = "MaterialsList.txt";
-
-
-        //    using (TextWriter tw = new StreamWriter(Path))
+        //    string line;
+           
+        //    System.IO.StreamReader file =
+        //        new System.IO.StreamReader("MaterialsList.txt");
+        //    while ((line = file.ReadLine()) != null)
         //    {
-        //        foreach (Materials x in allMaterials)
+        //        string[] words = line.Split(',');
+        //        if (words[0] == "Potions Supplies" )
         //        {
-        //            tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+        //            allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4]))); 
         //        }
-        //        tw.Close();
+        //        else if (words[0] == "Books")
+        //        {
+        //            allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+        //        }
+
+        //        else if (words[0] == "Manga")
+        //        {
+        //            allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+        //        }
         //    }
-            
+
+        //    //foreach (Materials x in allMaterials)
+        //    //{
+        //    //    Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
+        //    //}
+
+        //    file.Close();
+
         //}
 
 
@@ -123,7 +118,7 @@ namespace MidtermPractice
                             while (!reader.EndOfStream)
                             {
                                 line = reader.ReadLine();
-                                Console.WriteLine(line);         
+                                //Console.WriteLine(string.Format($"{0}, {1}, {2}, {3}, {4}", [1], [2], [3])
                             }
                         }
                         Console.WriteLine("1 - Check out");
@@ -146,41 +141,41 @@ namespace MidtermPractice
                                 break;
                         }
                         break;
-                    case 2:           
-                            while (!file.EndOfStream)
+                    case 2:
+                        while (!file.EndOfStream)
+                        {
+                            var line = file.ReadLine();
+                            if (String.IsNullOrEmpty(line)) continue;
+                            if (line.IndexOf("Book", StringComparison.CurrentCultureIgnoreCase) >= 0)
                             {
-                                var line = file.ReadLine();
-                                if (String.IsNullOrEmpty(line)) continue;
-                                if (line.IndexOf("Book", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                                {
-                                    Console.WriteLine(line);
-                                }
+                                Console.WriteLine(line);
+                            }
                             file.Close();
-                            }                        
+                        }
                         break;
                     case 3:
-                            while (!file.EndOfStream)
+                        while (!file.EndOfStream)
+                        {
+                            var line = file.ReadLine();
+                            if (String.IsNullOrEmpty(line)) continue;
+                            if (line.IndexOf("Manga", StringComparison.CurrentCultureIgnoreCase) >= 0)
                             {
-                                var line = file.ReadLine();
-                                if (String.IsNullOrEmpty(line)) continue;
-                                if (line.IndexOf("Manga", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                                {
-                                    Console.WriteLine(line);
-                                }
-                                file.Close();
+                                Console.WriteLine(line);
                             }
+                            file.Close();
+                        }
                         break;
                     case 4:
-                            while (!file.EndOfStream)
+                        while (!file.EndOfStream)
+                        {
+                            var line = file.ReadLine();
+                            if (String.IsNullOrEmpty(line)) continue;
+                            if (line.IndexOf("Potions Supplies", StringComparison.CurrentCultureIgnoreCase) >= 0)
                             {
-                                var line = file.ReadLine();
-                                if (String.IsNullOrEmpty(line)) continue;
-                                if (line.IndexOf("Potions Supplies", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                                {
-                                    Console.WriteLine(line);
-                                }
-                                file.Close();
+                                Console.WriteLine(line);
                             }
+                            file.Close();
+                        }
                         break;
                     case 5:
                         file.Close();
@@ -204,7 +199,7 @@ namespace MidtermPractice
 
             using (System.IO.StreamReader file =
                 new System.IO.StreamReader("MaterialsList.txt"))
-            { 
+            {
                 while (!file.EndOfStream)
                 {
                     var line = file.ReadLine();
@@ -223,69 +218,29 @@ namespace MidtermPractice
             Console.Write("Enter keyword: ");
             var text = Console.ReadLine();
 
-            using (System.IO.StreamReader file =
+            using (System.IO.StreamReader file1 =
                 new System.IO.StreamReader("MaterialsList.txt"))
             {
-                while (!file.EndOfStream)
+                while (!file1.EndOfStream)
                 {
-                    var line = file.ReadLine();
-                    if (String.IsNullOrEmpty(line)) continue;
-                    if (line.IndexOf(text, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                    var line1 = file1.ReadLine();
+                    if (String.IsNullOrEmpty(line1)) continue;
+                    if (line1.IndexOf(text, StringComparison.CurrentCultureIgnoreCase) >= 0)
                     {
-                        Console.WriteLine(line);
+                        Console.WriteLine(line1);
                     }
                 }
             }
             Console.ReadLine();
 
 
-            //List<Materials> allMaterials = new List<Materials>();
-
-
-            //allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-            //allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-            //allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-            //allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-            //allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-            //allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-            //allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-            //allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
-            //allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-            //allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
-            //allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-            //allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-            //allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
-            //allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
-
-            //UserSelect(test, allMaterials);
+            List<Materials> allMaterials = TextToList();
+            UserSelect();
         }
 
         public static void UserSelect()
         {
-            List<Materials> allMaterials = new List<Materials>();
-
-            allMaterials.Add(new potionsSupplies(91, "Pewter Cauldron", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(92, "Glass Phial", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(93, "Crystal Phial", "Potions Lady", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(94, "Brass Scales", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(95, "Juicing Board", "Diagon Alley Apothecary", Status.onShelf));
-            allMaterials.Add(new potionsSupplies(96, "Mortar and Pestle", "Ancient Potion Maker", Status.onShelf));
-            allMaterials.Add(new Book(51, "Fantastic Beasts and Where to Find Them", "Newt Scamander", Status.onShelf));
-            allMaterials.Add(new Book(52, "Quidditch Through the Ages", "Kennilworthy Whisp", Status.onShelf));
-            allMaterials.Add(new Book(53, "Hogwarts: A History", "Bathilda Bagshot", Status.onShelf));
-            allMaterials.Add(new Book(54, "Magical Drafts and Potions", "Arsenic Jigger", Status.onShelf));
-            allMaterials.Add(new Book(55, "Unfogging the Future", "Blenheim Stalk", Status.onShelf));
-            allMaterials.Add(new Book(56, "Magical Me", "Gilderoy Lockhart", Status.onShelf));
-            allMaterials.Add(new Manga(71, "Azuallmanga Daioh", "Kiyohiko Azuma", Status.onShelf));
-            allMaterials.Add(new Manga(72, "K-On", "Kakifly", Status.onShelf));
-            allMaterials.Add(new Manga(73, "Lucky Star", "Kagami Yoshimizu", Status.onShelf));
-            allMaterials.Add(new Manga(74, "Daily lives of high school boys", "Yasunobu Yamauchi", Status.onShelf));
-            allMaterials.Add(new Manga(75, "Nichijou", "Keiichi Arawi", Status.onShelf));
-            allMaterials.Add(new Manga(76, "Kaguya-sama: Love is War", "Aka Akasaka", Status.onShelf));
+            List<Materials> allMaterials = TextToList();
 
             int userISBN = 0;
             do Console.Write("Enter the ISBN of the item you would like to check out: ");
@@ -293,8 +248,18 @@ namespace MidtermPractice
             {
 
                 var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
-                CheckOut(obj, allMaterials);
 
+                Console.WriteLine($"{obj.statusOfMaterial}");
+
+                if (obj.statusOfMaterial != Status.onShelf)
+                {
+                    Console.WriteLine("I'm sorry, that item is unavailable");
+                    LibraryStartMenu();
+                }
+                else
+                {
+                    CheckOut(obj, allMaterials);
+                }
             }
         }
 
@@ -308,24 +273,25 @@ namespace MidtermPractice
             {
                 foreach (Materials x in allMaterials)
                 {
-                    tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+                    tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
                 }
                 tw.Close();
             }
+            DueDateTracker();
         }
 
         public static void DueDateTracker()
         {
 
-            DateTime checkoutDate = new DateTime(2021, 9, 1);
+            DateTime checkoutDate = DateTime.Today;
             DateTime dueDate = checkoutDate.AddDays(14);
 
-            DateTime returnDate =  DateTime.Now;
+            DateTime returnDate = DateTime.Now;
             TimeSpan intervalDate = (returnDate - dueDate);
             double t = Math.Round(intervalDate.TotalDays);
 
             int result = DateTime.Compare(checkoutDate, returnDate);
-            Console.WriteLine($"{returnDate}, {checkoutDate}, {dueDate}, {intervalDate}, {result}");
+            Console.WriteLine($"Please return your item by {dueDate.ToShortDateString()}, to avoid unwanted fees");
 
             if (result < 0)
             {
@@ -337,15 +303,52 @@ namespace MidtermPractice
             }
         }
 
+
         public static void Return()
         {
 
         }
+
+        public static List<Materials> TextToList()
+        {
+            List<Materials> allMaterials = new List<Materials>();
+            string line;
+
+            System.IO.StreamReader file =
+                new System.IO.StreamReader("MaterialsList.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] words = line.Split(',');
+                if (words[0] == "Potions Supplies")
+                {
+                    allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
+                else if (words[0] == "Books")
+                {
+                    allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
+
+                else if (words[0] == "Manga")
+                {
+                    allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
+            }
+            file.Close();
+            return allMaterials;
+        }
         static void Main(string[] args)
         {
             //LibraryContents();
-            //LibraryStartMenu();
-            DueDateTracker();
+            LibraryStartMenu();
+            //DueDateTracker();
+            //    //    using (TextWriter tw = new StreamWriter(Path))
+            //    //    {
+            //    //        foreach (Materials x in allMaterials)
+            //    //        {
+            //    //            tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+            //    //        }
+            //    //        tw.Close();
+            //    //    }
         }
     }
 }

@@ -1,18 +1,18 @@
-ISBN: 91 | Material: Potions Supplies | Name: Pewter Cauldron | Creator: Ancient Potion Maker | Status: onShelf
-ISBN: 92 | Material: Potions Supplies | Name: Glass Phial | Creator: Diagon Alley Apothecary | Status: onShelf
-ISBN: 93 | Material: Potions Supplies | Name: Crystal Phial | Creator: Potions Lady | Status: onShelf
-ISBN: 94 | Material: Potions Supplies | Name: Brass Scales | Creator: Ancient Potion Maker | Status: onShelf
-ISBN: 95 | Material: Potions Supplies | Name: Juicing Board | Creator: Diagon Alley Apothecary | Status: checkedOut
-ISBN: 96 | Material: Potions Supplies | Name: Mortar and Pestle | Creator: Ancient Potion Maker | Status: onShelf
-ISBN: 51 | Material: Books | Name: Fantastic Beasts and Where to Find Them | Creator: Newt Scamander | Status: onShelf
-ISBN: 52 | Material: Books | Name: Quidditch Through the Ages | Creator: Kennilworthy Whisp | Status: onShelf
-ISBN: 53 | Material: Books | Name: Hogwarts: A History | Creator: Bathilda Bagshot | Status: onShelf
-ISBN: 54 | Material: Books | Name: Magical Drafts and Potions | Creator: Arsenic Jigger | Status: onShelf
-ISBN: 55 | Material: Books | Name: Unfogging the Future | Creator: Blenheim Stalk | Status: onShelf
-ISBN: 56 | Material: Books | Name: Magical Me | Creator: Gilderoy Lockhart | Status: onShelf
-ISBN: 71 | Material: Manga | Name: Azuallmanga Daioh | Creator: Kiyohiko Azuma | Status: onShelf
-ISBN: 72 | Material: Manga | Name: K-On | Creator: Kakifly | Status: onShelf
-ISBN: 73 | Material: Manga | Name: Lucky Star | Creator: Kagami Yoshimizu | Status: onShelf
-ISBN: 74 | Material: Manga | Name: Daily lives of high school boys | Creator: Yasunobu Yamauchi | Status: onShelf
-ISBN: 75 | Material: Manga | Name: Nichijou | Creator: Keiichi Arawi | Status: onShelf
-ISBN: 76 | Material: Manga | Name: Kaguya-sama: Love is War | Creator: Aka Akasaka | Status: onShelf
+91, Potions Supplies,  Pewter Cauldron,  Ancient Potion Maker, checkedOut
+92, Potions Supplies,  Glass Phial,  Diagon Alley Apothecary, onShelf
+93, Potions Supplies,  Crystal Phial,  Potions Lady, onShelf
+94, Potions Supplies,  Brass Scales,  Ancient Potion Maker, onShelf
+95, Potions Supplies,  Juicing Board,  Diagon Alley Apothecary, onShelf
+96, Potions Supplies,  Mortar and Pestle,  Ancient Potion Maker, onShelf
+51, Books,  Fantastic Beasts and Where to Find Them,  Newt Scamander, onShelf
+52, Books,  Quidditch Through the Ages,  Kennilworthy Whisp, onShelf
+53, Books,  Hogwarts: A History,  Bathilda Bagshot, onShelf
+54, Books,  Magical Drafts and Potions,  Arsenic Jigger, vanished
+55, Books,  Unfogging the Future,  Blenheim Stalk, onShelf
+56, Books,  Magical Me,  Gilderoy Lockhart, onShelf
+71, Manga,  Azuallmanga Daioh,  Kiyohiko Azuma, checkedOut
+72, Manga,  K-On,  Kakifly, onShelf
+73, Manga,  Lucky Star,  Kagami Yoshimizu, onShelf
+74, Manga,  Daily Lives of High School Boys,  Yasunobu Yamauchi, onShelf
+75, Manga,  Nichijou,  Keiichi Arawi, onShelf
+76, Manga,  Kaguya-sama: Love is War,  Aka Akasaka, onShelf
