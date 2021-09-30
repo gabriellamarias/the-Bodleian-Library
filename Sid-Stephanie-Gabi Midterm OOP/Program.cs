@@ -27,7 +27,7 @@ namespace MidtermPractice
                 userRetry = false;
                 do Console.Write(@"
 What would you like to do?: ");
-                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
+                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));//regex
                 switch (userMenuChoice)
                 {
                     case 1:
@@ -213,12 +213,20 @@ What do you wish to do next?: ");
                 {
                   var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
                     {
-                        if (obj.statusOfMaterial != Status.ONSHELF)
+                        if (obj == null)
+                        {
+                            Console.WriteLine($@"
+{userISBN} is not a valid ISBN");
+                            UserSelect();
+                        }
+
+                        else if (obj.statusOfMaterial != Status.ONSHELF)
                         {
                             Console.WriteLine("I'm sorry, that item is unavailable");
                             LibraryStartMenu();
                         }
-                        else
+
+                        else 
                         {
                             CheckOut(obj, allMaterials);
                         }
@@ -404,6 +412,12 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
             file.Close();
             return allMaterials;
         }
+
+        //public static int userChoiceValidation(string userChoice)
+        //{
+            //regex stuff goes here
+            
+        //}
         static void Main(string[] args)
         {
             Console.WriteLine("*~*Welcome to the Bodleian Library!*~*");
