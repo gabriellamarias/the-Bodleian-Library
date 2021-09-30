@@ -10,9 +10,9 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
 
     public enum Status
     {
-        checkedOut,
-        onShelf,
-        vanished
+        CHECKEDOUT,
+        ONSHELF,
+        VANISHED
 
     }
     public abstract class Materials
@@ -31,7 +31,7 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
     }
     public class potionsSupplies : Materials
     {
-        private string _typeofmaterial = "Potions Supplies";
+        private string _typeofmaterial = "POTIONS SUPPLIES";
         public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
 
         public override string nameOfMaterial { get; set; }
@@ -55,7 +55,7 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
     }
     public class Book : Materials
     {
-        private string _typeofmaterial = "Books";
+        private string _typeofmaterial = "BOOKS";
         public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
 
         public override string nameOfMaterial { get; set; }
@@ -78,7 +78,7 @@ namespace Sid_Stephanie_Gabi_Midterm_OOP
     }
     public class Manga : Materials
     {
-        private string _typeofmaterial = "Manga";
+        private string _typeofmaterial = "MANGA";
         public override string typeOfMaterial { get { return _typeofmaterial; } set { _typeofmaterial = value; } }
 
         public override string nameOfMaterial { get; set; }

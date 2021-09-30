@@ -1,68 +1,32 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
 using System.IO;
 using Sid_Stephanie_Gabi_Midterm_OOP;
 using System.Linq;
+
 
 namespace MidtermPractice
 {
     public class LibraryApplication
     {
-
-
-        public static void LibraryContents()
-        {
-            List<Materials> allMaterials = new List<Materials>();
-            string line;
-
-            System.IO.StreamReader file =
-                new System.IO.StreamReader("MaterialsList.txt");
-            while ((line = file.ReadLine()) != null)
-            {
-                string[] words = line.Split(',');
-                if (words[0] == "Potions Supplies")
-                {
-                    allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
-                }
-                else if (words[0] == "Books")
-                {
-                    allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
-                }
-
-                else if (words[0] == "Manga")
-                {
-                    allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
-                }
-            }
-
-            //foreach (Materials x in allMaterials)
-            //{
-            //    Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
-            //}
-
-            file.Close();
-
-        }
-
-
         public static void LibraryStartMenu()
         {
             int userMenuChoice = 0;
             bool userRetry = false;
 
-            Console.WriteLine("Welcome to the Bodleian Library!");
-            Console.WriteLine("1 - Show library contents");
+            Console.WriteLine(@"
+1 - Show library contents");
             Console.WriteLine("2 - Search by creator");
             Console.WriteLine("3 - Search by keyword");
             Console.WriteLine("4 - Check out an item");
             Console.WriteLine("5 - Return an item");
+            Console.WriteLine("6 - Exit the library");
 
             do
             {
                 userRetry = false;
-                do Console.Write("What would you like to do?: ");
+                do Console.Write(@"
+What would you like to do?: ");
                 while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
                 switch (userMenuChoice)
                 {
@@ -76,13 +40,19 @@ namespace MidtermPractice
                         SearchByKeyword();
                         break;
                     case 4:
-                        Console.WriteLine("Check out an item");
+                        UserSelect();
                         break;
                     case 5:
-                        Console.WriteLine("Return an item");
+                        ReturnSelect();
+                        break;
+                    case 6:
+                        Console.WriteLine(@"
+*~*Mischief Managed! Goodbye!*~*");
+                        userRetry = false;
                         break;
                     default:
-                        Console.WriteLine("Please enter a number between 1 and 5");
+                        Console.WriteLine(@"
+Please enter a number between 1 and 6");
                         userRetry = true;
                         break;
                 }
@@ -92,13 +62,12 @@ namespace MidtermPractice
 
         public static void ShowLibraryContents()
         {
-            string Path = "MaterialsList.txt";
             int userMenuChoice = 0;
             bool userRetry = false;
-            System.IO.StreamReader file =
-                new System.IO.StreamReader("MaterialsList.txt");
+            List<Materials> allMaterials = TextToList();
 
-            Console.WriteLine("1 - Show all contents");
+            Console.WriteLine(@"
+1 - Show all contents");
             Console.WriteLine("2 - Show all books");
             Console.WriteLine("3 - Show all manga");
             Console.WriteLine("4 - Show all potions supplies");
@@ -107,175 +76,173 @@ namespace MidtermPractice
             do
             {
                 userRetry = false;
-                do Console.Write("What would you like to do?: ");
+                do Console.Write(@"
+What would you like to do?: ");
                 while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
                 switch (userMenuChoice)
                 {
                     case 1:
-                        //using (StreamReader reader = new StreamReader(Path))
-                        //{
-                        //    var line = string.Empty;
-                        //    while (!reader.EndOfStream)
-                        //    {
-                        //        line = reader.ReadLine();
-                        //        foreach ( x in reader.ReadLine())
-                        //        {
-                        //            Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
-                        //        }
-                        //    }
-                        //}
-                        List<Materials> allMaterials = TextToList();
                         foreach (Materials x in allMaterials)
                         {
-                        Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
-                        }    
-
-                        Console.WriteLine("1 - Check out");
-                        Console.WriteLine("2 - Return to main menu");
-                        do Console.Write("What do you wish to do next?: ");
-                        while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
-                        switch (userMenuChoice)
-                        {
-                            case 1:
-                                file.Close();
-                                UserSelect();
-                                break;
-                            case 2:
-                                file.Close();
-                                LibraryStartMenu();
-                                break;
-                            default:
-                                Console.WriteLine("Please enter a valid choice");
-                                file.Close();
-                                break;
+                            Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
+
+                        SecondaryMenu();
                         break;
                     case 2:
-                        while (!file.EndOfStream)
+                        foreach (var x in allMaterials.Where(p => p.GetType() == typeof(Book)))
                         {
-                            var line = file.ReadLine();
-                            if (String.IsNullOrEmpty(line)) continue;
-                            if (line.IndexOf("Book", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                            {
-                                Console.WriteLine(line);
-                            }
-                            file.Close();
+                            Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
+                        SecondaryMenu();
                         break;
                     case 3:
-                        while (!file.EndOfStream)
+                        foreach (var x in allMaterials.Where(p => p.GetType() == typeof(Manga)))
                         {
-                            var line = file.ReadLine();
-                            if (String.IsNullOrEmpty(line)) continue;
-                            if (line.IndexOf("Manga", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                            {
-                                Console.WriteLine(line);
-                            }
-                            file.Close();
+                            Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
+                        SecondaryMenu();
                         break;
                     case 4:
-                        while (!file.EndOfStream)
+                        foreach (var x in allMaterials.Where(p => p.GetType() == typeof(potionsSupplies)))
                         {
-                            var line = file.ReadLine();
-                            if (String.IsNullOrEmpty(line)) continue;
-                            if (line.IndexOf("Potions Supplies", StringComparison.CurrentCultureIgnoreCase) >= 0)
-                            {
-                                Console.WriteLine(line);
-                            }
-                            file.Close();
+                            Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
+                        SecondaryMenu();
                         break;
                     case 5:
-                        file.Close();
                         LibraryStartMenu();
                         break;
                     default:
                         Console.WriteLine("Please enter a valid option");
                         userRetry = true;
-                        file.Close();
                         break;
                 }
-                file.Close();
             }
             while (userRetry);
         }
         public static void SearchByCreator()
         {
-
+            List<Materials> allMaterials = TextToList();
             Console.Write("Enter creator: ");
-            var text = Console.ReadLine();
+            var search = Console.ReadLine().ToUpper();
+            var items = allMaterials.FindAll(x => x.Creator.Contains(search));
 
-            using (System.IO.StreamReader file =
-                new System.IO.StreamReader("MaterialsList.txt"))
+            if (items.Any() != true)
             {
-                while (!file.EndOfStream)
+                Console.WriteLine($"I'm sorry, we do not have any items created by {search}");
+            }
+           
+            else
+            {
+                foreach (Materials x in items)
                 {
-                    var line = file.ReadLine();
-                    if (String.IsNullOrEmpty(line)) continue;
-                    if (line.IndexOf(text, StringComparison.CurrentCultureIgnoreCase) >= 0)
-                    {
-                        Console.WriteLine(line);
-                    }
+                    Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                 }
             }
-            Console.ReadLine();
+           
+            SecondaryMenu();
         }
 
         public static void SearchByKeyword()
         {
+            List<Materials> allMaterials = TextToList();
             Console.Write("Enter keyword: ");
-            var text = Console.ReadLine();
+            var search = Console.ReadLine().ToUpper();
+            var items = allMaterials.FindAll(x => x.nameOfMaterial.Contains(search));
 
-            using (System.IO.StreamReader file1 =
-                new System.IO.StreamReader("MaterialsList.txt"))
+            if (items.Any() != true)
             {
-                while (!file1.EndOfStream)
+                Console.WriteLine($"I'm sorry, we do not have any items with {search} keyword");
+            }
+
+            else
+            {
+                foreach (Materials x in items)
                 {
-                    var line1 = file1.ReadLine();
-                    if (String.IsNullOrEmpty(line1)) continue;
-                    if (line1.IndexOf(text, StringComparison.CurrentCultureIgnoreCase) >= 0)
-                    {
-                        Console.WriteLine(line1);
-                    }
+                    Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                 }
             }
-            
 
-
-            List<Materials> allMaterials = TextToList();
-            UserSelect();
+            SecondaryMenu();
         }
-
+        public static void SecondaryMenu()
+        {
+            bool userRetry = false;
+            int userMenuChoice = 0;
+            do
+            {
+                userRetry = false;
+                Console.WriteLine(@"
+1 - Check out");
+                Console.WriteLine(@"2 - Return to main menu");
+                do Console.Write(@"
+What do you wish to do next?: ");
+                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
+                switch (userMenuChoice)
+                {
+                    case 1:
+                        UserSelect();
+                        break;
+                    case 2:
+                        LibraryStartMenu();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid choice");
+                        userRetry = true;
+                        break;
+                }
+            }
+            while (userRetry);
+        }
         public static void UserSelect()
         {
             List<Materials> allMaterials = TextToList();
 
             int userISBN = 0;
-            do Console.Write("Enter the ISBN of the item you would like to check out: ");
+            do Console.Write(@"
+1 - Show list of all items
+2 - Return to Main Menu
+Checkout an Item - Enter the ISBN of the item you would like to checkout
+
+What do you wish to do next?: ");
+            
             while (!int.TryParse(Console.ReadLine(), out userISBN));
             {
-
-                var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
-
-                //Console.WriteLine($"{obj.statusOfMaterial}");
-
-                if (obj.statusOfMaterial != Status.onShelf)
+                if (userISBN != 1 && userISBN != 2)
                 {
-                    Console.WriteLine("I'm sorry, that item is unavailable");
-                    LibraryStartMenu();
+                  var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
+                    {
+                        if (obj.statusOfMaterial != Status.ONSHELF)
+                        {
+                            Console.WriteLine("I'm sorry, that item is unavailable");
+                            LibraryStartMenu();
+                        }
+                        else
+                        {
+                            CheckOut(obj, allMaterials);
+                        }
+                    }
+
                 }
-                else
+                else if (userISBN == 1)
                 {
-                    CheckOut(obj, allMaterials);
+                    foreach (Materials x in allMaterials)
+                    {
+                        Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
+                    }
+                    UserSelect();
+                }
+                else if (userISBN == 2)
+                {
+                    LibraryStartMenu();
                 }
             }
         }
 
-
         public static void CheckOut(Materials userCheckOut, List<Materials> allMaterials)
         {
-            userCheckOut.statusOfMaterial = Status.checkedOut;
+            userCheckOut.statusOfMaterial = Status.CHECKEDOUT;
 
             string Path = "MaterialsList.txt";
             using (TextWriter tw = new StreamWriter(Path))
@@ -286,12 +253,11 @@ namespace MidtermPractice
                 }
                 tw.Close();
             }
-            DueDateTracker();
+            DueDateTracker(userCheckOut);
         }
 
-        public static void DueDateTracker()
+        public static void DueDateTracker(Materials userCheckout)
         {
-
             DateTime checkoutDate = DateTime.Today;
             DateTime dueDate = checkoutDate.AddDays(14);
 
@@ -300,31 +266,117 @@ namespace MidtermPractice
             double t = Math.Round(intervalDate.TotalDays);
 
             int result = DateTime.Compare(checkoutDate, returnDate);
-            Console.WriteLine($"Please return your item by {dueDate.ToShortDateString()}, to avoid unwanted fees");
-
-        
+            Console.WriteLine($@"
+Please return {userCheckout.nameOfMaterial} by {dueDate.ToShortDateString()}, to avoid any unwanted curses");
+            
+            DueDateRecorder(userCheckout, dueDate);
+            SecondaryMenu();
         }
 
-
-        public static void Return()
+        public static void DueDateRecorder(Materials userCheckout, DateTime dueDate)
         {
-            Console.Write("Please enter the ISBN of the book you would like to return. ISBN: ");
-            var result = Console.ReadLine();
-
-
-
-            //if (result < 0)
-            //{
-            //    Console.WriteLine($"This book is overdue by {t} days!");
-            //}
-            //else if (result > 0)
-            //{
-            //    Console.WriteLine("This book was returned on time.");
-            //}
-
+            using (StreamWriter tw = File.AppendText("DueDateTracker.txt"))
+            {
+                tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}, {5}", userCheckout.typeOfMaterial, userCheckout.ISBN, userCheckout.nameOfMaterial, userCheckout.Creator, userCheckout.statusOfMaterial.ToString(), dueDate.ToShortDateString()));
+            }
         }
 
+        public static void ReturnSelect()
+        {
+            List<Materials> allMaterials = TextToList();
 
+            int userISBN = 0;
+            do Console.Write(@" 
+1 - Show list of all items
+2 - Return to Main Menu
+Return an Item - Enter the ISBN of the item you would like to return
+
+What do you wish to do next?: ");
+            while (!int.TryParse(Console.ReadLine(), out userISBN));
+            {
+                if (userISBN != 1 && userISBN != 2)
+                {
+                    var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
+                    if (obj.statusOfMaterial != Status.CHECKEDOUT)
+                    {
+                        Console.WriteLine(@"
+I'm sorry, that item must be checked out to be returned");
+                        LibraryStartMenu();
+                    }
+                    else
+                    {
+                        Return(obj, allMaterials);
+                    }
+                }
+                else if (userISBN == 1)
+                {
+                    foreach (Materials x in allMaterials)
+                    {
+                        Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
+                    }
+                    ReturnSelect();
+                }
+                else if (userISBN == 2)
+                {
+                    LibraryStartMenu();
+                }
+            }
+        }
+
+        public static void Return(Materials userReturn, List<Materials> allMaterials)
+        {
+            userReturn.statusOfMaterial = Status.ONSHELF;
+
+            string Path = "MaterialsList.txt";
+            using (TextWriter tw = new StreamWriter(Path))
+            {
+                foreach (Materials x in allMaterials)
+                {
+                    tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}", x.typeOfMaterial, x.ISBN, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+                }
+                tw.Close();
+            }
+            ReturnDateTracker(userReturn);
+        }
+
+        public static void ReturnDateTracker(Materials userReturn)
+        {
+            string line;
+            string item = userReturn.nameOfMaterial;
+
+            using (System.IO.StreamReader file = new System.IO.StreamReader("DueDateTracker.txt"))
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] words = line.Split(',');
+                    if (words[2].Trim() == item)
+                    {
+                        DateTime dueDate = DateTime.Parse(words[5].Trim());
+                        DateTime returnDate = DateTime.Now;
+                        TimeSpan intervalDate = (returnDate - dueDate);
+                        int result = DateTime.Compare(dueDate, returnDate);
+                        double t = Math.Round(intervalDate.TotalDays);
+
+                        if (result < 0)
+                        {
+                            Console.WriteLine($@"
+Tsk, tsk {userReturn.nameOfMaterial} is overdue by {t} days!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($@"
+Thank you! {userReturn.nameOfMaterial} has been returned on time.");
+                        }
+                    }
+
+                }
+            }
+            var oldLines = System.IO.File.ReadAllLines("DueDateTracker.txt");
+            var newLines = oldLines.Where(line => !line.Contains(item));
+            File.WriteAllLines("DueDateTracker.txt", newLines);
+            SecondaryMenu();
+
+        }
         public static List<Materials> TextToList()
         {
             List<Materials> allMaterials = new List<Materials>();
@@ -335,18 +387,18 @@ namespace MidtermPractice
             while ((line = file.ReadLine()) != null)
             {
                 string[] words = line.Split(',');
-                if (words[0] == "Potions Supplies")
+                if (words[0] == "POTIONS SUPPLIES")
                 {
-                    allMaterials.Add(new potionsSupplies(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
+                    allMaterials.Add(new potionsSupplies(int.Parse(words[1].Trim().ToUpper()), words[2].Trim().ToUpper(), words[3].Trim().ToUpper(), (Status)Enum.Parse(typeof(Status), words[4].Trim().ToUpper())));
                 }
-                else if (words[0] == "Books")
+                else if (words[0] == "BOOKS")
                 {
-                    allMaterials.Add(new Book(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
+                    allMaterials.Add(new Book(int.Parse(words[1].Trim().ToUpper()), words[2].Trim().ToUpper(), words[3].Trim().ToUpper(), (Status)Enum.Parse(typeof(Status), words[4].Trim().ToUpper())));
                 }
 
-                else if (words[0] == "Manga")
+                else if (words[0] == "MANGA")
                 {
-                    allMaterials.Add(new Manga(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
+                    allMaterials.Add(new Manga(int.Parse(words[1].Trim().ToUpper()), words[2].Trim().ToUpper(), words[3].Trim().ToUpper(), (Status)Enum.Parse(typeof(Status), words[4].Trim().ToUpper())));
                 }
             }
             file.Close();
@@ -354,17 +406,8 @@ namespace MidtermPractice
         }
         static void Main(string[] args)
         {
-            //LibraryContents();
+            Console.WriteLine("*~*Welcome to the Bodleian Library!*~*");
             LibraryStartMenu();
-            //DueDateTracker();
-            //    //    using (TextWriter tw = new StreamWriter(Path))
-            //    //    {
-            //    //        foreach (Materials x in allMaterials)
-            //    //        {
-            //    //            tw.WriteLine(string.Format("ISBN: {0} | Material: {1} | Name: {2} | Creator: {3} | Status: {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
-            //    //        }
-            //    //        tw.Close();
-            //    //    }
         }
     }
 }
