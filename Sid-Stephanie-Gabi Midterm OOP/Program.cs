@@ -12,39 +12,39 @@ namespace MidtermPractice
     {
 
 
-        //public static void LibraryContents()
-        //{
-        //    List<Materials> allMaterials = new List<Materials>();
-        //    string line;
-           
-        //    System.IO.StreamReader file =
-        //        new System.IO.StreamReader("MaterialsList.txt");
-        //    while ((line = file.ReadLine()) != null)
-        //    {
-        //        string[] words = line.Split(',');
-        //        if (words[0] == "Potions Supplies" )
-        //        {
-        //            allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4]))); 
-        //        }
-        //        else if (words[0] == "Books")
-        //        {
-        //            allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
-        //        }
+        public static void LibraryContents()
+        {
+            List<Materials> allMaterials = new List<Materials>();
+            string line;
 
-        //        else if (words[0] == "Manga")
-        //        {
-        //            allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
-        //        }
-        //    }
+            System.IO.StreamReader file =
+                new System.IO.StreamReader("MaterialsList.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] words = line.Split(',');
+                if (words[0] == "Potions Supplies")
+                {
+                    allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
+                else if (words[0] == "Books")
+                {
+                    allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
 
-        //    //foreach (Materials x in allMaterials)
-        //    //{
-        //    //    Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
-        //    //}
+                else if (words[0] == "Manga")
+                {
+                    allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                }
+            }
 
-        //    file.Close();
+            //foreach (Materials x in allMaterials)
+            //{
+            //    Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
+            //}
 
-        //}
+            file.Close();
+
+        }
 
 
         public static void LibraryStartMenu()
@@ -112,15 +112,24 @@ namespace MidtermPractice
                 switch (userMenuChoice)
                 {
                     case 1:
-                        using (StreamReader reader = new StreamReader(Path))
+                        //using (StreamReader reader = new StreamReader(Path))
+                        //{
+                        //    var line = string.Empty;
+                        //    while (!reader.EndOfStream)
+                        //    {
+                        //        line = reader.ReadLine();
+                        //        foreach ( x in reader.ReadLine())
+                        //        {
+                        //            Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
+                        //        }
+                        //    }
+                        //}
+                        List<Materials> allMaterials = TextToList();
+                        foreach (Materials x in allMaterials)
                         {
-                            var line = string.Empty;
-                            while (!reader.EndOfStream)
-                            {
-                                line = reader.ReadLine();
-                                //Console.WriteLine(string.Format($"{0}, {1}, {2}, {3}, {4}", [1], [2], [3])
-                            }
-                        }
+                        Console.WriteLine($"ISBN: {x.ISBN} | Type: {x.typeOfMaterial} | Name: {x.nameOfMaterial} | Creator: {x.Creator} | Status: {x.statusOfMaterial}");
+                        }    
+
                         Console.WriteLine("1 - Check out");
                         Console.WriteLine("2 - Return to main menu");
                         do Console.Write("What do you wish to do next?: ");
@@ -231,7 +240,7 @@ namespace MidtermPractice
                     }
                 }
             }
-            Console.ReadLine();
+            
 
 
             List<Materials> allMaterials = TextToList();
@@ -249,7 +258,7 @@ namespace MidtermPractice
 
                 var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
 
-                Console.WriteLine($"{obj.statusOfMaterial}");
+                //Console.WriteLine($"{obj.statusOfMaterial}");
 
                 if (obj.statusOfMaterial != Status.onShelf)
                 {
@@ -273,7 +282,7 @@ namespace MidtermPractice
             {
                 foreach (Materials x in allMaterials)
                 {
-                    tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}", x.ISBN, x.typeOfMaterial, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
+                    tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}", x.typeOfMaterial, x.ISBN, x.nameOfMaterial, x.Creator, x.statusOfMaterial.ToString()));
                 }
                 tw.Close();
             }
@@ -293,21 +302,28 @@ namespace MidtermPractice
             int result = DateTime.Compare(checkoutDate, returnDate);
             Console.WriteLine($"Please return your item by {dueDate.ToShortDateString()}, to avoid unwanted fees");
 
-            if (result < 0)
-            {
-                Console.WriteLine($"This book is overdue by {t} days!");
-            }
-            else if (result >= 0)
-            {
-                Console.WriteLine("This book was returned on time.");
-            }
+        
         }
 
 
         public static void Return()
         {
+            Console.Write("Please enter the ISBN of the book you would like to return. ISBN: ");
+            var result = Console.ReadLine();
+
+
+
+            //if (result < 0)
+            //{
+            //    Console.WriteLine($"This book is overdue by {t} days!");
+            //}
+            //else if (result > 0)
+            //{
+            //    Console.WriteLine("This book was returned on time.");
+            //}
 
         }
+
 
         public static List<Materials> TextToList()
         {
@@ -321,16 +337,16 @@ namespace MidtermPractice
                 string[] words = line.Split(',');
                 if (words[0] == "Potions Supplies")
                 {
-                    allMaterials.Add(new potionsSupplies(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                    allMaterials.Add(new potionsSupplies(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
                 }
                 else if (words[0] == "Books")
                 {
-                    allMaterials.Add(new Book(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                    allMaterials.Add(new Book(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
                 }
 
                 else if (words[0] == "Manga")
                 {
-                    allMaterials.Add(new Manga(int.Parse(words[1]), words[2], words[3], (Status)Enum.Parse(typeof(Status), words[4])));
+                    allMaterials.Add(new Manga(int.Parse(words[1].Trim()), words[2].Trim(), words[3].Trim(), (Status)Enum.Parse(typeof(Status), words[4].Trim())));
                 }
             }
             file.Close();
