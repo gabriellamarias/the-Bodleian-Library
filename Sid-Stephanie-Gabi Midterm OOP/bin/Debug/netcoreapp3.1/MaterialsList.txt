@@ -1,18 +1,18 @@
-Potions Supplies, 91, Pewter Cauldron, Ancient Potion Maker, checkedOut
-Potions Supplies, 92, Glass Phial, Diagon Alley Apothecary, checkedOut
-Potions Supplies, 93, Crystal Phial, Potions Lady, onShelf
-Potions Supplies, 94, Brass Scales, Ancient Potion Maker, onShelf
-Potions Supplies, 95, Juicing Board, Diagon Alley Apothecary, onShelf
-Potions Supplies, 96, Mortar and Pestle, Ancient Potion Maker, checkedOut
-Books, 51, Fantastic Beasts and Where to Find Them, Newt Scamander, onShelf
-Books, 52, Quidditch Through the Ages, Kennilworthy Whisp, onShelf
-Books, 53, Hogwarts: A History, Bathilda Bagshot, onShelf
-Books, 54, Magical Drafts and Potions, Arsenic Jigger, vanished
-Books, 55, Unfogging the Future, Blenheim Stalk, checkedOut
-Books, 56, Magical Me, Gilderoy Lockhart, onShelf
-Manga, 71, Azuallmanga Daioh, Kiyohiko Azuma, checkedOut
-Manga, 72, K-On, Kakifly, onShelf
-Manga, 73, Lucky Star, Kagami Yoshimizu, onShelf
-Manga, 74, Daily Lives of High School Boys, Yasunobu Yamauchi, onShelf
-Manga, 75, Nichijou, Keiichi Arawi, checkedOut
-Manga, 76, Kaguya-sama: Love is War, Aka Akasaka, checkedOut
+BOOKS, 51, FANTASTIC BEASTS AND WHERE TO FIND THEM, NEWT SCAMANDER, ONSHELF
+BOOKS, 52, QUIDDITCH THROUGH THE AGES, KENNILWORTHY WHISP, ONSHELF
+BOOKS, 53, HOGWARTS: A HISTORY, BATHILDA BAGSHOT, ONSHELF
+BOOKS, 54, MAGICAL DRAFTS AND POTIONS, ARSENIC JIGGER, ONSHELF
+BOOKS, 55, UNFOGGING THE FUTURE, BLENHEIM STALK, ONSHELF
+BOOKS, 56, MAGICAL ME, GILDEROY LOCKHART, VANISHED
+MANGA, 71, AZUALLMANGA DAIOH, KIYOHIKO AZUMA, ONSHELF
+MANGA, 72, K-ON, KAKIFLY, ONSHELF
+MANGA, 73, LUCKY STAR, KAGAMI YOSHIMIZU, ONSHELF
+MANGA, 74, DAILY LIVES OF HIGH SCHOOL BOYS, YASUNOBU YAMAUCHI, CHECKEDOUT
+MANGA, 75, NICHIJOU, KEIICHI ARAWI, ONSHELF
+MANGA, 76, KAGUYA-SAMA: LOVE IS WAR, AKA AKASAKA, ONSHELF
+POTIONS SUPPLIES, 91, PEWTER CAULDRON, ANCIENT POTION MAKER, VANISHED
+POTIONS SUPPLIES, 92, GLASS PHIAL, DIAGON ALLEY APOTHECARY, ONSHELF
+POTIONS SUPPLIES, 93, CRYSTAL PHIAL, POTIONS LADY, ONSHELF
+POTIONS SUPPLIES, 94, BRASS SCALES, ANCIENT POTION MAKER, ONSHELF
+POTIONS SUPPLIES, 95, JUICING BOARD, DIAGON ALLEY APOTHECARY, CHECKEDOUT
+POTIONS SUPPLIES, 96, MORTAR AND PESTLE, ANCIENT POTION MAKER, CHECKEDOUT
