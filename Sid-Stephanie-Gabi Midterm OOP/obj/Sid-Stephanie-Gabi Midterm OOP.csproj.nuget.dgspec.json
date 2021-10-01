@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabi\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj": {}
+    "C:\\Users\\sidma\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabi\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj": {
+    "C:\\Users\\sidma\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabi\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+        "projectUniqueName": "C:\\Users\\sidma\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
         "projectName": "Sid-Stephanie-Gabi Midterm OOP",
-        "projectPath": "C:\\Users\\Gabi\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
-        "packagesPath": "C:\\Users\\Gabi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabi\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
+        "projectPath": "C:\\Users\\sidma\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\Sid-Stephanie-Gabi Midterm OOP.csproj",
+        "packagesPath": "C:\\Users\\sidma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sidma\\source\\repos\\the-Bodleian-Library\\Sid-Stephanie-Gabi Midterm OOP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sidma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

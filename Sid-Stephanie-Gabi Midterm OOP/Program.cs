@@ -11,7 +11,6 @@ namespace MidtermPractice
     {
         public static void LibraryStartMenu()
         {
-            int userMenuChoice = 0;
             bool userRetry = false;
 
             Console.WriteLine(@"
@@ -25,10 +24,11 @@ namespace MidtermPractice
             do
             {
                 userRetry = false;
-                do Console.Write(@"
+                Console.Write(@"
 What would you like to do?: ");
-                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));//regex
-                switch (userMenuChoice)
+                string userMenuChoice = Console.ReadLine();
+                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                switch (validatedUserChoice)
                 {
                     case 1:
                         ShowLibraryContents();
@@ -62,7 +62,7 @@ Please enter a number between 1 and 6");
 
         public static void ShowLibraryContents()
         {
-            int userMenuChoice = 0;
+
             bool userRetry = false;
             List<Materials> allMaterials = TextToList();
 
@@ -76,10 +76,12 @@ Please enter a number between 1 and 6");
             do
             {
                 userRetry = false;
-                do Console.Write(@"
+                Console.Write(@"
 What would you like to do?: ");
-                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
-                switch (userMenuChoice)
+
+                string userMenuChoice = Console.ReadLine();
+                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                switch (validatedUserChoice)
                 {
                     case 1:
                         foreach (Materials x in allMaterials)
@@ -132,7 +134,7 @@ What would you like to do?: ");
             {
                 Console.WriteLine($"I'm sorry, we do not have any items created by {search}");
             }
-           
+
             else
             {
                 foreach (Materials x in items)
@@ -140,7 +142,7 @@ What would you like to do?: ");
                     Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                 }
             }
-           
+
             SecondaryMenu();
         }
 
@@ -169,17 +171,17 @@ What would you like to do?: ");
         public static void SecondaryMenu()
         {
             bool userRetry = false;
-            int userMenuChoice = 0;
             do
             {
                 userRetry = false;
                 Console.WriteLine(@"
 1 - Check out");
                 Console.WriteLine(@"2 - Return to main menu");
-                do Console.Write(@"
+                Console.Write(@"
 What do you wish to do next?: ");
-                while (!int.TryParse(Console.ReadLine(), out userMenuChoice));
-                switch (userMenuChoice)
+                string userMenuChoice = Console.ReadLine();
+                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                switch (validatedUserChoice)
                 {
                     case 1:
                         UserSelect();
@@ -199,55 +201,58 @@ What do you wish to do next?: ");
         {
             List<Materials> allMaterials = TextToList();
 
-            int userISBN = 0;
-            do Console.Write(@"
+            Console.Write(@"
 1 - Show list of all items
 2 - Return to Main Menu
 Checkout an Item - Enter the ISBN of the item you would like to checkout
 
 What do you wish to do next?: ");
-            
-            while (!int.TryParse(Console.ReadLine(), out userISBN));
+            string userMenuChoice = Console.ReadLine();
+            int userISBN = userChoiceValidation(userMenuChoice);
+
+            if (userISBN != 1 && userISBN != 2)
             {
-                if (userISBN != 1 && userISBN != 2)
+                var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
                 {
-                  var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
+                    if (obj == null)
                     {
-                        if (obj == null)
-                        {
-                            Console.WriteLine($@"
-{userISBN} is not a valid ISBN");
-                            UserSelect();
-                        }
-
-                        else if (obj.statusOfMaterial != Status.ONSHELF)
-                        {
-                            Console.WriteLine("I'm sorry, that item is unavailable");
-                            LibraryStartMenu();
-                        }
-
-                        else 
-                        {
-                            CheckOut(obj, allMaterials);
-                        }
+                        Console.WriteLine(@"
+Please enter a valid ISBN.");
+                        UserSelect();
                     }
 
-                }
-                else if (userISBN == 1)
-                {
-                    foreach (Materials x in allMaterials)
+                    else if (obj.statusOfMaterial != Status.ONSHELF)
                     {
-                        Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
+                        Console.WriteLine("I'm sorry, that item is unavailable");
+                        LibraryStartMenu();
                     }
-                    UserSelect();
+
+                    else
+                    {
+                        CheckOut(obj, allMaterials);
+                    }
                 }
-                else if (userISBN == 2)
+
+            }
+            else if (userISBN == 1)
+            {
+                foreach (Materials x in allMaterials)
                 {
-                    LibraryStartMenu();
+                    Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                 }
+                UserSelect();
+            }
+            else if (userISBN == 2)
+            {
+                LibraryStartMenu();
+            }
+            else
+            {
+                Console.WriteLine("Please select a valid option.");
+                UserSelect();
             }
         }
-
+ 
         public static void CheckOut(Materials userCheckOut, List<Materials> allMaterials)
         {
             userCheckOut.statusOfMaterial = Status.CHECKEDOUT;
@@ -293,27 +298,37 @@ Please return {userCheckout.nameOfMaterial} by {dueDate.ToShortDateString()}, to
         {
             List<Materials> allMaterials = TextToList();
 
-            int userISBN = 0;
-            do Console.Write(@" 
+            
+            Console.Write(@" 
 1 - Show list of all items
 2 - Return to Main Menu
 Return an Item - Enter the ISBN of the item you would like to return
 
 What do you wish to do next?: ");
-            while (!int.TryParse(Console.ReadLine(), out userISBN));
-            {
-                if (userISBN != 1 && userISBN != 2)
+            string userMenuChoice = Console.ReadLine();
+            int userISBN = userChoiceValidation(userMenuChoice);
+            if (userISBN != 1 && userISBN != 2)
                 {
                     var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
-                    if (obj.statusOfMaterial != Status.CHECKEDOUT)
                     {
-                        Console.WriteLine(@"
+                        if (obj == null)
+                        {
+                            Console.WriteLine($@"
+Please enter a valid ISBN.");
+                            UserSelect();
+                        }
+
+                        else if (obj.statusOfMaterial != Status.CHECKEDOUT)
+                        {
+                            Console.WriteLine(@"
 I'm sorry, that item must be checked out to be returned");
-                        LibraryStartMenu();
-                    }
-                    else
-                    {
-                        Return(obj, allMaterials);
+                            LibraryStartMenu();
+                        }
+
+                        else
+                        {
+                            Return(obj, allMaterials);
+                        }
                     }
                 }
                 else if (userISBN == 1)
@@ -328,7 +343,7 @@ I'm sorry, that item must be checked out to be returned");
                 {
                     LibraryStartMenu();
                 }
-            }
+            
         }
 
         public static void Return(Materials userReturn, List<Materials> allMaterials)
@@ -413,11 +428,19 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
             return allMaterials;
         }
 
-        //public static int userChoiceValidation(string userChoice)
-        //{
-            //regex stuff goes here
-            
-        //}
+        public static int userChoiceValidation(string userChoice)
+        {
+            try
+            {
+                int userNumber = int.Parse(userChoice);
+                return userNumber;
+            }
+            catch (FormatException)
+            {
+                return 9;
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("*~*Welcome to the Bodleian Library!*~*");
