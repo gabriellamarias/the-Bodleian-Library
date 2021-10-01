@@ -20,6 +20,7 @@ namespace MidtermPractice
             Console.WriteLine("4 - Check out an item");
             Console.WriteLine("5 - Return an item");
             Console.WriteLine("6 - Exit the library");
+            Console.WriteLine("7 - Librarian Mode");
 
             do
             {
@@ -49,6 +50,9 @@ What would you like to do?: ");
                         Console.WriteLine(@"
 *~*Mischief Managed! Goodbye!*~*");
                         userRetry = false;
+                        break;
+                    case 7:
+                        AddAnItemTotheList();
                         break;
                     default:
                         Console.WriteLine(@"
@@ -439,6 +443,91 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
             {
                 return 9;
             }
+        }
+
+
+        public static void AddAnItemTotheList()
+        {
+            Console.Write("\n1 - Add an item to the Library's contents\n2 - Remove an item from the Library's contents\n\nWhat would you like to do?: ");
+            var librarianInput = Console.ReadLine();
+
+
+            if (librarianInput == "1")
+            {
+                Console.WriteLine("\nPlease enter the following item information: ");
+                Console.Write("Type of material: ");
+                string libTypeOfMateral = Console.ReadLine().ToUpper();
+                Console.Write("ISBN: ");
+                string libISBN = Console.ReadLine().ToUpper();
+                Console.Write("Name of material: ");
+                string libNameOfMaterial = Console.ReadLine().ToUpper();
+                Console.Write("Creator: ");
+                string libCreator = Console.ReadLine().ToUpper();
+                Console.Write("Status of material (checkedout, onshelf, vanished): ");
+                string libStatus = Console.ReadLine().ToUpper();
+
+                using (StreamWriter tw = File.AppendText("MaterialsList.txt"))
+                {
+                    tw.WriteLine(string.Format("{0}, {1}, {2}, {3}, {4}", libTypeOfMateral, libISBN, libNameOfMaterial, libCreator, libStatus));
+                }
+
+                Console.WriteLine($"{libNameOfMaterial} has been added to the Library's contents!\n");
+
+                LibrarianMenuAddToList();
+            }
+            else if (librarianInput == "2")
+            {
+
+                Console.Write("Please enter the name of the item you would like to remove: ");
+                string libNameOfMaterial = Console.ReadLine().ToUpper();
+                string item = libNameOfMaterial;
+
+
+                var oldLines = System.IO.File.ReadAllLines("MaterialsList.txt");
+                var newLines = oldLines.Where(line => !line.Contains(item));
+                File.WriteAllLines("MaterialsList.txt", newLines);
+
+                Console.WriteLine($"{libNameOfMaterial} has been removed from the Library's contents!\n");
+
+                LibrarianMenuAddToList();
+            }
+           
+
+        }
+
+        public static void LibrarianMenuAddToList()
+        {
+            bool userRetry = false;
+            do
+            {
+                userRetry = false;
+                Console.WriteLine("1 - Add/Remove another item");
+                Console.WriteLine("2 - Return to main menu");
+                Console.WriteLine("3 - Exit");
+                Console.Write("\nWhat do you wish to do next?: ");
+                string userMenuChoice = Console.ReadLine();
+                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                switch (validatedUserChoice)
+                {
+                    case 1:
+                        AddAnItemTotheList();
+                        break;
+                    case 2:
+                        LibraryStartMenu();
+                        break;
+                    case 3:
+                        Console.WriteLine(@"
+*~*Mischief Managed! Goodbye!*~*");
+                        userRetry = false;
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid choice");
+                        userRetry = true;
+                        break;
+                }
+            } while (userRetry);
+
+
         }
 
         static void Main(string[] args)
