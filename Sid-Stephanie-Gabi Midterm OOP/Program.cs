@@ -28,7 +28,7 @@ namespace MidtermPractice
                 Console.Write(@"
 What would you like to do?: ");
                 string userMenuChoice = Console.ReadLine();
-                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                int validatedUserChoice = UserChoiceValidation(userMenuChoice);
                 switch (validatedUserChoice)
                 {
                     case 1:
@@ -41,10 +41,10 @@ What would you like to do?: ");
                         SearchByKeyword();
                         break;
                     case 4:
-                        UserSelect();
+                        UserSelectCheckout();
                         break;
                     case 5:
-                        ReturnSelect();
+                        UserSelectReturn();
                         break;
                     case 6:
                         Console.WriteLine(@"
@@ -64,6 +64,35 @@ Please enter a number between 1 and 6");
             while (userRetry);
         }
 
+        public static void EscapeMenu()
+        {
+            bool userRetry = false;
+            do
+            {
+                userRetry = false;
+                Console.WriteLine(@"
+1 - Check out");
+                Console.WriteLine(@"2 - Return to main menu");
+                Console.Write(@"
+What do you wish to do next?: ");
+                string userMenuChoice = Console.ReadLine();
+                int validatedUserChoice = UserChoiceValidation(userMenuChoice);
+                switch (validatedUserChoice)
+                {
+                    case 1:
+                        UserSelectCheckout();
+                        break;
+                    case 2:
+                        LibraryStartMenu();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid choice");
+                        userRetry = true;
+                        break;
+                }
+            }
+            while (userRetry);
+        }
         public static void ShowLibraryContents()
         {
 
@@ -84,7 +113,7 @@ Please enter a number between 1 and 6");
 What would you like to do?: ");
 
                 string userMenuChoice = Console.ReadLine();
-                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                int validatedUserChoice = UserChoiceValidation(userMenuChoice);
                 switch (validatedUserChoice)
                 {
                     case 1:
@@ -93,28 +122,28 @@ What would you like to do?: ");
                             Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
 
-                        SecondaryMenu();
+                        EscapeMenu();
                         break;
                     case 2:
                         foreach (var x in allMaterials.Where(p => p.GetType() == typeof(Book)))
                         {
                             Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
-                        SecondaryMenu();
+                        EscapeMenu();
                         break;
                     case 3:
                         foreach (var x in allMaterials.Where(p => p.GetType() == typeof(Manga)))
                         {
                             Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
-                        SecondaryMenu();
+                        EscapeMenu();
                         break;
                     case 4:
                         foreach (var x in allMaterials.Where(p => p.GetType() == typeof(potionsSupplies)))
                         {
                             Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                         }
-                        SecondaryMenu();
+                        EscapeMenu();
                         break;
                     case 5:
                         LibraryStartMenu();
@@ -147,7 +176,7 @@ What would you like to do?: ");
                 }
             }
 
-            SecondaryMenu();
+            EscapeMenu();
         }
 
         public static void SearchByKeyword()
@@ -170,38 +199,9 @@ What would you like to do?: ");
                 }
             }
 
-            SecondaryMenu();
+            EscapeMenu();
         }
-        public static void SecondaryMenu()
-        {
-            bool userRetry = false;
-            do
-            {
-                userRetry = false;
-                Console.WriteLine(@"
-1 - Check out");
-                Console.WriteLine(@"2 - Return to main menu");
-                Console.Write(@"
-What do you wish to do next?: ");
-                string userMenuChoice = Console.ReadLine();
-                int validatedUserChoice = userChoiceValidation(userMenuChoice);
-                switch (validatedUserChoice)
-                {
-                    case 1:
-                        UserSelect();
-                        break;
-                    case 2:
-                        LibraryStartMenu();
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid choice");
-                        userRetry = true;
-                        break;
-                }
-            }
-            while (userRetry);
-        }
-        public static void UserSelect()
+        public static void UserSelectCheckout()
         {
             List<Materials> allMaterials = TextToList();
 
@@ -212,7 +212,7 @@ Checkout an Item - Enter the ISBN of the item you would like to checkout
 
 What do you wish to do next?: ");
             string userMenuChoice = Console.ReadLine();
-            int userISBN = userChoiceValidation(userMenuChoice);
+            int userISBN = UserChoiceValidation(userMenuChoice);
 
             if (userISBN != 1 && userISBN != 2)
             {
@@ -222,7 +222,7 @@ What do you wish to do next?: ");
                     {
                         Console.WriteLine(@"
 Please enter a valid ISBN.");
-                        UserSelect();
+                        UserSelectCheckout();
                     }
 
                     else if (obj.statusOfMaterial != Status.ONSHELF)
@@ -244,7 +244,7 @@ Please enter a valid ISBN.");
                 {
                     Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                 }
-                UserSelect();
+                UserSelectCheckout();
             }
             else if (userISBN == 2)
             {
@@ -253,7 +253,7 @@ Please enter a valid ISBN.");
             else
             {
                 Console.WriteLine("Please select a valid option.");
-                UserSelect();
+                UserSelectCheckout();
             }
         }
  
@@ -287,7 +287,7 @@ Please enter a valid ISBN.");
 Please return {userCheckout.nameOfMaterial} by {dueDate.ToShortDateString()}, to avoid any unwanted curses");
             
             DueDateRecorder(userCheckout, dueDate);
-            SecondaryMenu();
+            EscapeMenu();
         }
 
         public static void DueDateRecorder(Materials userCheckout, DateTime dueDate)
@@ -298,7 +298,7 @@ Please return {userCheckout.nameOfMaterial} by {dueDate.ToShortDateString()}, to
             }
         }
 
-        public static void ReturnSelect()
+        public static void UserSelectReturn()
         {
             List<Materials> allMaterials = TextToList();
 
@@ -310,7 +310,7 @@ Return an Item - Enter the ISBN of the item you would like to return
 
 What do you wish to do next?: ");
             string userMenuChoice = Console.ReadLine();
-            int userISBN = userChoiceValidation(userMenuChoice);
+            int userISBN = UserChoiceValidation(userMenuChoice);
             if (userISBN != 1 && userISBN != 2)
                 {
                     var obj = allMaterials.FirstOrDefault(x => x.ISBN == userISBN);
@@ -319,7 +319,7 @@ What do you wish to do next?: ");
                         {
                             Console.WriteLine($@"
 Please enter a valid ISBN.");
-                            UserSelect();
+                            UserSelectCheckout();
                         }
 
                         else if (obj.statusOfMaterial != Status.CHECKEDOUT)
@@ -341,7 +341,7 @@ I'm sorry, that item must be checked out to be returned");
                     {
                         Console.WriteLine($"ISBN: {x.ISBN} | TYPE: {x.typeOfMaterial} | NAME: {x.nameOfMaterial} | CREATOR: {x.Creator} | STATUS: {x.statusOfMaterial}");
                     }
-                    ReturnSelect();
+                    UserSelectReturn();
                 }
                 else if (userISBN == 2)
                 {
@@ -401,7 +401,7 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
             var oldLines = System.IO.File.ReadAllLines("DueDateTracker.txt");
             var newLines = oldLines.Where(line => !line.Contains(item));
             File.WriteAllLines("DueDateTracker.txt", newLines);
-            SecondaryMenu();
+            EscapeMenu();
 
         }
         public static List<Materials> TextToList()
@@ -432,7 +432,7 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
             return allMaterials;
         }
 
-        public static int userChoiceValidation(string userChoice)
+        public static int UserChoiceValidation(string userChoice)
         {
             try
             {
@@ -506,7 +506,7 @@ Thank you! {userReturn.nameOfMaterial} has been returned on time.");
                 Console.WriteLine("3 - Exit");
                 Console.Write("\nWhat do you wish to do next?: ");
                 string userMenuChoice = Console.ReadLine();
-                int validatedUserChoice = userChoiceValidation(userMenuChoice);
+                int validatedUserChoice = UserChoiceValidation(userMenuChoice);
                 switch (validatedUserChoice)
                 {
                     case 1:
